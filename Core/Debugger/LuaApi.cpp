@@ -757,7 +757,7 @@ int LuaApi::Reload(lua_State *lua)
 	checkparams();
 	checkinitdone();
 	ExecuteShortcutParams params = {};
-	params.Shortcut = EmulatorShortcut::ExecReloadRom;
+	params.Shortcut = EmulatorShortcut::ReloadRom;
 	_emu->GetNotificationManager()->SendNotification(ConsoleNotificationType::ExecuteShortcut, &params);
 	return l.ReturnCount();
 }
