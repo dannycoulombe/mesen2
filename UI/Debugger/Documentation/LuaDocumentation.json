@@ -314,6 +314,11 @@
 	"returnValue": { "type": "Int", "description": "A 32-bit (signed or unsigned) value." }
 },
 {
+	"name": "reload",
+	"category": "Emulation",
+	"description": "Reload the current ROM file."
+},
+{
 	"name": "reset",
 	"category": "Emulation",
 	"description": "Resets the current game. If the console does not have a reset button, this will have the same effect as power cycling."
