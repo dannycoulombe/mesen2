@@ -22,6 +22,7 @@
 #include "Shared/Video/DrawStringCommand.h"
 #include "Shared/KeyManager.h"
 #include "Shared/Interfaces/IConsole.h"
+#include "Shared/NotificationManager.h"
 #include "Shared/Interfaces/IKeyManager.h"
 #include "Shared/ControllerHub.h"
 #include "Shared/BaseControlManager.h"
@@ -128,6 +129,7 @@ int LuaApi::GetLibrary(lua_State *lua)
 
 		{ "reset", LuaApi::Reset },
 		{ "reload", LuaApi::Reload },
+		{ "powerCycle", LuaApi::PowerCycle },
 		{ "stop", LuaApi::Stop },
 		{ "breakExecution", LuaApi::BreakExecution },
 		{ "resume", LuaApi::Resume },
@@ -754,7 +756,18 @@ int LuaApi::Reload(lua_State *lua)
 	LuaCallHelper l(lua);
 	checkparams();
 	checkinitdone();
-	_emu->ReloadRom(false);
+	ExecuteShortcutParams params = {};
+	params.Shortcut = EmulatorShortcut::ExecReloadRom;
+	_emu->GetNotificationManager()->SendNotification(ConsoleNotificationType::ExecuteShortcut, &params);
+	return l.ReturnCount();
+}
+
+int LuaApi::PowerCycle(lua_State *lua)
+{
+	LuaCallHelper l(lua);
+	checkparams();
+	checkinitdone();
+	_emu->GetSystemActionManager()->PowerCycle();
 	return l.ReturnCount();
 }
 

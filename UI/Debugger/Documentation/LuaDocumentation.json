@@ -343,6 +343,11 @@
 	]
 },
 {
+	"name": "powerCycle",
+	"category": "Emulation",
+	"description": "Perform a power cycle reset."
+},
+{
 	"name": "selectDrawSurface",
 	"category": "Drawing",
 	"description": "Selects the surface on which any subsequent draw call will be drawn to.\n\nconsoleScreen: This surface is the same as the console's output and is a fixed resolution. Anything drawn here will appear in screenshots/videos.\n\nscriptHud: This surface is independent to the console's output and has a configurable resolution. Drawings done on this surface will not appear in screenshots/videos.\n\nNote: setScreenBuffer always draws to the \"consoleScreen\" surface.",

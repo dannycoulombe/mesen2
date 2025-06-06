@@ -62,6 +62,7 @@ public:
 	
 	static int Reset(lua_State *lua);
 	static int Reload(lua_State *lua);
+	static int PowerCycle(lua_State *lua);
 	static int Stop(lua_State *lua);
 	static int BreakExecution(lua_State *lua);
 	static int Resume(lua_State *lua);
